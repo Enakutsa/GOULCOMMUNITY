@@ -1,0 +1,79 @@
+/* ===== Barre du haut des pages publiques ===== */
+
+.navbar {
+    border-bottom: 1px solid var(--color-bordure);
+    background-color: #fff;
+}
+
+.navbar-interieur {
+    display: flex;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ----- Logo ----- */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.navbar-logo-pastille {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border-radius: 0.6rem;
+    background-color: var(--color-accent-500);
+    color: var(--color-bleu-900);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.navbar-logo-texte {
+    color: var(--color-bleu-900);
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+/* ----- Liens du milieu (cachés sur téléphone) ----- */
+.navbar-liens {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .navbar-liens {
+        display: flex;
+    }
+}
+
+.navbar-liens a {
+    color: var(--color-texte);
+    font-weight: 500;
+    text-decoration: none;
+}
+.navbar-liens a:hover {
+    color: var(--color-bleu-700);
+}
+
+/* ----- Boutons et avatar à droite ----- */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.navbar-actions .btn {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-avatar {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 0.875rem;
+}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx';
+import '../../assets/css/layout/NavbarPublique.css';
 
 function initiales(utilisateur) {
     const prenom = utilisateur?.prenom?.[0] ?? '';
@@ -11,57 +12,37 @@ export default function NavbarPublique() {
     const { estConnecte, utilisateur, deconnecter } = useAuth();
 
     return (
-        <header className="border-b border-bordure bg-white">
-            <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-                <Link to="/" className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-500 text-lg font-extrabold text-bleu-900">
-                        G
-                    </span>
-                    <span className="text-lg font-extrabold tracking-tight text-bleu-900">
-                        GOULCOMMUNITY
-                    </span>
+        <header className="navbar">
+            <div className="conteneur navbar-interieur">
+                <Link to="/" className="navbar-logo">
+                    <span className="navbar-logo-pastille">G</span>
+                    <span className="navbar-logo-texte">GOULCOMMUNITY</span>
                 </Link>
 
-                <nav className="hidden items-center gap-8 md:flex">
-                    <Link to="/annuaire" className="font-medium hover:text-bleu-700">
-                        Établissements
-                    </Link>
-                    <Link to="/clubs" className="font-medium hover:text-bleu-700">
-                        Clubs
-                    </Link>
-                    <a href="/#avantages" className="font-medium hover:text-bleu-700">
-                        Avantages
-                    </a>
+                <nav className="navbar-liens">
+                    <Link to="/annuaire">Établissements</Link>
+                    <Link to="/clubs">Clubs</Link>
+                    <a href="/#avantages">Avantages</a>
                 </nav>
 
                 {estConnecte ? (
-                    <div className="flex items-center gap-3">
-                        <button
-                            type="button"
-                            onClick={deconnecter}
-                            className="rounded-lg border border-bleu-700 px-4 py-2 text-sm font-semibold text-bleu-700 hover:bg-bleu-50"
-                        >
+                    <div className="navbar-actions">
+                        <button type="button" onClick={deconnecter} className="btn btn-contour">
                             Déconnexion
                         </button>
                         <span
                             title={`${utilisateur.prenom} ${utilisateur.nom}`}
-                            className="flex h-11 w-11 items-center justify-center rounded-full bg-bleu-700 text-sm font-bold text-white"
+                            className="avatar avatar-rond navbar-avatar"
                         >
                             {initiales(utilisateur)}
                         </span>
                     </div>
                 ) : (
-                    <div className="flex items-center gap-3">
-                        <Link
-                            to="/connexion"
-                            className="rounded-lg border border-bleu-700 px-4 py-2 text-sm font-semibold text-bleu-700 hover:bg-bleu-50"
-                        >
+                    <div className="navbar-actions">
+                        <Link to="/connexion" className="btn btn-contour">
                             Connexion
                         </Link>
-                        <Link
-                            to="/inscription"
-                            className="rounded-lg bg-bleu-700 px-4 py-2 text-sm font-semibold text-white hover:bg-bleu-600"
-                        >
+                        <Link to="/inscription" className="btn btn-primaire">
                             S'inscrire
                         </Link>
                     </div>
