@@ -1,0 +1,159 @@
+/* ===== THÈME GOULCOMMUNITY : styles partagés par toutes les pages ===== */
+
+/* Conteneur centré */
+.conteneur {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ----- Boutons ----- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-bloc {
+    width: 100%;
+}
+
+.btn-accent {
+    background-color: var(--color-accent-500);
+    color: var(--color-bleu-900);
+}
+.btn-accent:hover:not(:disabled) {
+    background-color: var(--color-accent-600);
+}
+
+.btn-primaire {
+    background-color: var(--color-bleu-700);
+    color: #fff;
+}
+.btn-primaire:hover:not(:disabled) {
+    background-color: var(--color-bleu-600);
+}
+
+.btn-contour {
+    background-color: transparent;
+    border-color: var(--color-bleu-700);
+    color: var(--color-bleu-700);
+}
+.btn-contour:hover:not(:disabled) {
+    background-color: var(--color-bleu-50);
+}
+
+/* ----- Champs de formulaire ----- */
+.champ-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.champ-aide {
+    margin-left: 0.25rem;
+    font-weight: 400;
+    color: var(--color-texte-doux);
+}
+
+.champ {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-bordure);
+    border-radius: 0.6rem;
+    background-color: #fff;
+    outline: none;
+}
+.champ:focus {
+    border-color: var(--color-bleu-600);
+}
+.champ-erreur {
+    border-color: #dc2626;
+}
+
+.champ-message-erreur {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #dc2626;
+}
+
+/* ----- Cartes ----- */
+.carte {
+    padding: 1.25rem;
+    border: 1px solid var(--color-bordure);
+    border-radius: 0.9rem;
+    background-color: #fff;
+}
+
+/* ----- Badges ----- */
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge-bleu {
+    background-color: var(--color-bleu-50);
+    color: var(--color-bleu-700);
+}
+.badge-accent {
+    background-color: var(--color-accent-50);
+    color: var(--color-accent-600);
+}
+.badge-gris {
+    background-color: var(--color-fond);
+    color: var(--color-texte-doux);
+}
+
+/* ----- Avatar à initiales ----- */
+.avatar {
+    display: grid;
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    border-radius: 0.6rem;
+    background-color: var(--color-bleu-700);
+    color: #fff;
+    font-weight: 700;
+}
+.avatar-rond {
+    border-radius: 999px;
+}
+
+/* ----- Messages ----- */
+.alerte-erreur {
+    padding: 0.75rem;
+    border-radius: 0.6rem;
+    background-color: #fef2f2;
+    color: #b91c1c;
+    font-size: 0.875rem;
+}
+.alerte-info {
+    padding: 0.75rem;
+    border-radius: 0.6rem;
+    background-color: var(--color-bleu-50);
+    color: var(--color-bleu-900);
+    font-size: 0.875rem;
+}
+
+/* ----- Textes ----- */
+.texte-doux {
+    color: var(--color-texte-doux);
+}

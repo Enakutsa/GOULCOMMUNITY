@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Etablissement extends Model
@@ -15,7 +16,7 @@ class Etablissement extends Model
     protected $fillable = [
         'nom', 'sigle', 'slug', 'type', 'secteur', 'description', 'ville', 'quartier',
         'adresse', 'site_web', 'email_contact', 'telephone', 'logo_url',
-        'statut_page', 'est_publie',
+        'statut_page', 'est_publie', 'createur_id',
     ];
 
     protected $casts = [
@@ -25,6 +26,16 @@ class Etablissement extends Model
     public function formations(): HasMany
     {
         return $this->hasMany(Formation::class, 'etablissement_id');
+    }
+
+    public function clubs(): HasMany
+    {
+        return $this->hasMany(Club::class, 'etablissement_id');
+    }
+
+    public function createur(): BelongsTo
+    {
+        return $this->belongsTo(Utilisateur::class, 'createur_id');
     }
 
     public function scopePublie($query)

@@ -1,0 +1,193 @@
+/* ===== Cadre commun des pages Connexion et Inscription ===== */
+
+.auth {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+    .auth {
+        grid-template-columns: 1.05fr 1fr;
+    }
+}
+
+/* ----- Panneau de gauche : voile bleu + photo + dégradé de secours ----- */
+.auth-panneau {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 2.5rem;
+    background:
+        linear-gradient(
+            160deg,
+            rgba(11, 42, 91, 0.94) 0%,
+            rgba(11, 42, 91, 0.82) 55%,
+            rgba(23, 75, 163, 0.74) 100%
+        ),
+        url('/images/auth-fond.jpg') center / cover no-repeat,
+        linear-gradient(160deg, var(--color-bleu-900) 0%, #0f3a80 55%, var(--color-bleu-700) 100%);
+    color: #fff;
+}
+
+@media (min-width: 900px) {
+    .auth-panneau {
+        display: flex;
+    }
+}
+
+.auth-halo {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.auth-halo-1 {
+    top: -8rem;
+    right: -8rem;
+    width: 26rem;
+    height: 26rem;
+    background: radial-gradient(circle, rgba(245, 138, 31, 0.35), transparent 70%);
+}
+.auth-halo-2 {
+    bottom: -10rem;
+    left: -6rem;
+    width: 24rem;
+    height: 24rem;
+    background: radial-gradient(circle, rgba(59, 123, 232, 0.4), transparent 70%);
+}
+
+.auth-panneau-contenu,
+.auth-panneau > .auth-logo,
+.auth-signature {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-panneau-titre {
+    max-width: 22rem;
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.auth-panneau-texte {
+    max-width: 24rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.auth-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-top: 2rem;
+    padding: 0;
+    list-style: none;
+    color: rgba(255, 255, 255, 0.92);
+}
+.auth-points li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.auth-point-icone {
+    display: grid;
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--color-accent-500);
+    color: var(--color-bleu-900);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.auth-signature {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ----- Logo ----- */
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+}
+.auth-logo-pastille {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border-radius: 0.6rem;
+    background-color: var(--color-accent-500);
+    color: var(--color-bleu-900);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+.auth-logo-texte {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+/* Logo visible seulement sur téléphone (le panneau est caché) */
+.auth-logo-mobile {
+    margin-bottom: 1.5rem;
+    color: var(--color-bleu-900);
+}
+@media (min-width: 900px) {
+    .auth-logo-mobile {
+        display: none;
+    }
+}
+
+/* ----- Zone du formulaire ----- */
+.auth-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(245, 138, 31, 0.08), transparent 40%),
+        var(--color-fond);
+}
+
+.auth-carte {
+    width: 100%;
+    max-width: 28rem;
+    padding: 2.25rem;
+    border: 1px solid var(--color-bordure);
+    border-radius: 1.25rem;
+    background-color: #fff;
+    box-shadow: 0 24px 48px -24px rgba(11, 42, 91, 0.3);
+    animation: auth-apparition 0.4s ease both;
+}
+
+@keyframes auth-apparition {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Titres de la carte (partagés par Connexion et Inscription) */
+.auth-titre {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-bleu-900);
+}
+.auth-sous-titre {
+    margin-top: 0.35rem;
+    color: var(--color-texte-doux);
+}
